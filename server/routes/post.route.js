@@ -1,4 +1,7 @@
-const PostControl = require("../controllers/post.control");
-module.exports = function (app) {
-  app.get("/api", PostControl.index);
-};
+import express from "express";
+
+import { getPosts, createPost } from "../controllers/post.control.js";
+const router = express.Router();
+router.get("/", getPosts);
+router.post("/", createPost);
+export default router;
